@@ -57,7 +57,7 @@ const helpCommand = message => {
 
   message.channel.send(
     'Comandos disponíveis: \n----------------- \n'+
-    'maurilio \nrogerinho \njulinho \nrenan \nboa-noite \nachou-errado'
+    'maurilio \nrogerinho \njulinho \nrenan \nboa-noite \nachou-errado \nvaza (tira o bot do server)'
   );
 }
 

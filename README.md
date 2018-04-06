@@ -10,9 +10,12 @@ Um choque de cultura no seu servidor Discord.
 
 **/choque**
  - help
+ - vaza (tira o bot do server)
  - maurilio
  - rogerinho
  - renan
  - julinho
  - boa-noite
  - achou-errado
+
+Agradecimento especial ao pessoal do [AudioDeCultura](https://github.com/lagemanngui/audiodecultura) por disponibilizar os audios.
