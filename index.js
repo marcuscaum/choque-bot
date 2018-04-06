@@ -35,7 +35,7 @@ const playSound = async (message, song) => {
   // dispatcher.on('end', () => message.member.voiceChannel.leave());
 }  
 
-const playSoundCommand = (message, member) => {
+const playSoundCommand = async (message, member) => {
   if (message.content === `/${member}`) {
     const readdir = util.promisify(fs.readdir);
     const soundList = await readdir(`./sounds/${member}/`);
