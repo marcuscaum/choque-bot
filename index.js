@@ -35,6 +35,17 @@ const playSound = async (message, song) => {
   // dispatcher.on('end', () => message.member.voiceChannel.leave());
 }  
 
+const playSoundCommand = (message, member) => {
+  if (message.content === `/${member}`) {
+    const readdir = util.promisify(fs.readdir);
+    const soundList = await readdir(`./sounds/${member}/`);
+
+    playSound(
+      message,
+      `./sounds/${member}/${sample(soundList)}`
+    );
+  }
+}
 
 client.on('message', async message => {
   if (!message.guild) return;
@@ -45,15 +56,10 @@ client.on('message', async message => {
     }
   }
 
-  if (message.content === '/renan') {
-    const readdir = util.promisify(fs.readdir);
-    const soundList = await readdir('./sounds/renan/');
+  playSoundCommand(message, 'renan');
+  playSoundCommand(message, 'julinho');
 
-    playSound(
-      message,
-      `./sounds/renan/${sample(soundList)}`
-    );
-  }
+
 });
 
 client.login(process.env.DISCORD_TOKEN);
