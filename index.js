@@ -68,7 +68,7 @@ client.on('message', async message => {
   playRandomSoundFromList(message, 'maurilio');
   playRandomSoundFromList(message, 'rogerinho');
 
-  playSpecificSound(message, 'boa-noite', './sounds/maurilio/amantes_de_cinema.ogg');
+  playSpecificSound(message, 'boa-noite', './maurilio/amantes_de_cinema.ogg');
 });
 
 client.login(process.env.DISCORD_TOKEN);
