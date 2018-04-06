@@ -36,13 +36,22 @@ const playSound = async (message, song) => {
 }  
 
 const playSoundCommand = async (message, member) => {
-  if (message.content === `/${member}`) {
+  if (message.content === `/choque ${member}`) {
     const readdir = util.promisify(fs.readdir);
     const soundList = await readdir(`./sounds/${member}/`);
 
     playSound(
       message,
       `./sounds/${member}/${sample(soundList)}`
+    );
+  }
+}
+
+const playSpecificSound = (message, command, sound) => {
+  if (message.content === `/choque ${command}`) {
+    playSound(
+      message,
+      `./sounds/${sound}`
     );
   }
 }
@@ -60,6 +69,8 @@ client.on('message', async message => {
   playSoundCommand(message, 'julinho');
   playSoundCommand(message, 'maurilio');
   playSoundCommand(message, 'rogerinho');
+
+  playSpecificSound(message, 'boa-noite', './sounds/maurilio/amantes_de_cinema.ogg');
 });
 
 client.login(process.env.DISCORD_TOKEN);
