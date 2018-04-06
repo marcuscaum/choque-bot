@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tem_rambo.ogg-ed49c4943b622de9216b9cc6949fb2a3.oggstr"
+
+[deps]
+
+source_file="res://renan/sfx/e01/tem_rambo.ogg"
+source_md5="e898395159c452a60bf801dcbe3ed337"
+
+dest_files=[ "res://.import/tem_rambo.ogg-ed49c4943b622de9216b9cc6949fb2a3.oggstr" ]
+dest_md5="77737f122f4d1408320a5575d955a84f"
+
+[params]
+
+loop=false
+loop_offset=0

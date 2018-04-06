@@ -1,0 +1,18 @@
+{
+  "name": "choque-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@marcuscaum",
+  "license": "ISC",
+  "dependencies": {
+    "discord.io": "woor/discord.io#gateway_v6",
+    "discord.js": "^11.3.2",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "node-opus": "^0.2.7",
+    "opusscript": "^0.0.6"
+  }
+}

@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tem_que_fazer_curso.ogg-716b9c0c1b6d65960b5197be3b5c0da5.oggstr"
+
+[deps]
+
+source_file="res://renan/sfx/e01/tem_que_fazer_curso.ogg"
+source_md5="1d697b1384422aea27ea05a07a14aa37"
+
+dest_files=[ "res://.import/tem_que_fazer_curso.ogg-716b9c0c1b6d65960b5197be3b5c0da5.oggstr" ]
+dest_md5="61c861e2c5f7d330219f1638a60097da"
+
+[params]
+
+loop=false
+loop_offset=0
