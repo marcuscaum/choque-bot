@@ -56,8 +56,8 @@ const helpCommand = message => {
   if (!checkCommand(message, 'help')) return;
 
   message.channel.send(
-    'Comandos disponíveis: \n ----------------- \n'+
-    'maurilio \n rogerinho \n julinho \n renan \n boa-noite \n achou-errado'
+    'Comandos disponíveis: \n----------------- \n'+
+    'maurilio \nrogerinho \njulinho \nrenan \nboa-noite \nachou-errado'
   );
 }
 
