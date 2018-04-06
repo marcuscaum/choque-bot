@@ -52,6 +52,12 @@ const playSpecificSound = (message, command, sound) => {
   );
 }
 
+const helpCommand = message => {
+  if (!checkCommand(message, 'help')) return;
+
+  message.channel.send('Comanods disponíveis: \n maurilio \n rogerinho \n julinho \n renan \n boa-noite \n achou-errado ');
+}
+
 const leaveChannelListener = message => {
   if (!checkCommand(message, 'vaza') || !message.member.voiceChannel) return;
 
@@ -62,6 +68,7 @@ client.on('message', async message => {
   if (!message.guild) return;
 
   leaveChannelListener(message);
+  helpCommand(message);
 
   playRandomSoundFromList(message, 'renan');
   playRandomSoundFromList(message, 'julinho');
@@ -69,6 +76,7 @@ client.on('message', async message => {
   playRandomSoundFromList(message, 'rogerinho');
 
   playSpecificSound(message, 'boa-noite', './maurilio/amantes_de_cinema.ogg');
+  playSpecificSound(message, 'achou-errado', './rogerinho/acho_errado.ogg');
 });
 
 client.login(process.env.DISCORD_TOKEN);
