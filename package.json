@@ -9,10 +9,12 @@
   "author": "@marcuscaum",
   "license": "ISC",
   "dependencies": {
-    "discord.io": "woor/discord.io#gateway_v6",
     "discord.js": "^11.3.2",
     "ffmpeg-binaries": "^3.2.2-3",
+    "fs": "^0.0.1-security",
+    "lodash.sample": "^4.2.1",
     "node-opus": "^0.2.7",
-    "opusscript": "^0.0.6"
+    "opusscript": "^0.0.6",
+    "util": "^0.10.3"
   }
 }

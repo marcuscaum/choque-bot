@@ -1,4 +1,8 @@
 const Discord = require('discord.js');
+const fs = require('fs');
+const sample = require('lodash.sample');
+const util = require('util');
+
 const client = new Discord.Client();
 
 client.on('ready', () => {
@@ -19,15 +23,16 @@ const enterChannel = message => {
   return message.reply('Entra em uma sala de aúdio, otário!');
 }
 
-const playSong = async (message, song) => {
+const playSound = async (message, song) => {
   const connection = await enterChannel(message)
   const dispatcher = connection.playFile(song);
 
   dispatcher.on('error', console.log)
-  dispatcher.on('end', () => message.member.voiceChannel.leave());
+  // dispatcher.on('end', () => message.member.voiceChannel.leave());
 }  
 
-client.on('message', message => {
+
+client.on('message', async message => {
   if (!message.guild) return;
 
   if (message.content === '/vaza') {
@@ -37,7 +42,13 @@ client.on('message', message => {
   }
 
   if (message.content === '/renan') {
-    playSong(message, './sounds/renan/adulto_esquisito.ogg');
+    const readdir = util.promisify(fs.readdir);
+    const soundList = await readdir('./sounds/renan/');
+
+    playSound(
+      message,
+      `./sounds/renan/${sample(soundList)}`
+    );
   }
 });
 
