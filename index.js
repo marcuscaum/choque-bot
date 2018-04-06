@@ -27,6 +27,8 @@ const enterChannel = message => {
   return message.reply('Entra em uma sala de aúdio, otário!');
 }
 
+const checkCommand = (message, command) => message.content === `/choque ${command}`;
+
 const playSound = async (message, song) => {
   const connection = await enterChannel(message)
   const dispatcher = connection.playFile(song);
@@ -35,40 +37,42 @@ const playSound = async (message, song) => {
   // dispatcher.on('end', () => message.member.voiceChannel.leave());
 }  
 
-const playSoundCommand = async (message, member) => {
-  if (message.content === `/choque ${member}`) {
-    const readdir = util.promisify(fs.readdir);
-    const soundList = await readdir(`./sounds/${member}/`);
+const playRandomSoundFromList = async (message, member) => {
+  if (!checkCommand(message, member)) return;
 
-    playSound(
-      message,
-      `./sounds/${member}/${sample(soundList)}`
-    );
-  }
+  const readdir = util.promisify(fs.readdir);
+  const soundList = await readdir(`./sounds/${member}/`);
+
+  playSound(
+    message,
+    `./sounds/${member}/${sample(soundList)}`
+  );
 }
 
 const playSpecificSound = (message, command, sound) => {
-  if (message.content === `/choque ${command}`) {
-    playSound(
-      message,
-      `./sounds/${sound}`
-    );
-  }
+  if(!checkCommand(message, command)) return;
+
+  playSound(
+    message,
+    `./sounds/${sound}`
+  );
+}
+
+const leaveChannelListener = message => {
+  if (!checkCommand(message, 'vaza') || !message.member.voiceChannel) return;
+
+  message.member.voiceChannel.leave();
 }
 
 client.on('message', async message => {
   if (!message.guild) return;
 
-  if (message.content === '/vaza') {
-    if (message.member.voiceChannel) {
-      message.member.voiceChannel.leave();
-    }
-  }
+  leaveChannelListener(message);
 
-  playSoundCommand(message, 'renan');
-  playSoundCommand(message, 'julinho');
-  playSoundCommand(message, 'maurilio');
-  playSoundCommand(message, 'rogerinho');
+  playRandomSoundFromList(message, 'renan');
+  playRandomSoundFromList(message, 'julinho');
+  playRandomSoundFromList(message, 'maurilio');
+  playRandomSoundFromList(message, 'rogerinho');
 
   playSpecificSound(message, 'boa-noite', './sounds/maurilio/amantes_de_cinema.ogg');
 });
