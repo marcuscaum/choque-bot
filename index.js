@@ -55,7 +55,10 @@ const playSpecificSound = (message, command, sound) => {
 const helpCommand = message => {
   if (!checkCommand(message, 'help')) return;
 
-  message.channel.send('Comanods disponíveis: \n maurilio \n rogerinho \n julinho \n renan \n boa-noite \n achou-errado ');
+  message.channel.send(
+    'Comandos disponíveis: \n ----------------- \n'+
+    'maurilio \n rogerinho \n julinho \n renan \n boa-noite \n achou-errado'
+  );
 }
 
 const leaveChannelListener = message => {
@@ -76,7 +79,7 @@ client.on('message', async message => {
   playRandomSoundFromList(message, 'rogerinho');
 
   playSpecificSound(message, 'boa-noite', './maurilio/amantes_de_cinema.ogg');
-  playSpecificSound(message, 'achou-errado', './rogerinho/acho_errado.ogg');
+  playSpecificSound(message, 'achou-errado', './rogerinho/acho-errado.ogg');
 });
 
 client.login(process.env.DISCORD_TOKEN);
