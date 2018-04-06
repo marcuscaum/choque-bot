@@ -59,8 +59,7 @@ client.on('message', async message => {
   playSoundCommand(message, 'renan');
   playSoundCommand(message, 'julinho');
   playSoundCommand(message, 'maurilio');
-
-
+  playSoundCommand(message, 'rogerinho');
 });
 
 client.login(process.env.DISCORD_TOKEN);
