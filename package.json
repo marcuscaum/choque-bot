@@ -17,5 +17,8 @@
     "node-opus": "^0.2.7",
     "opusscript": "^0.0.6",
     "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.1"
   }
 }

@@ -3,6 +3,10 @@ const fs = require('fs');
 const sample = require('lodash.sample');
 const util = require('util');
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').load();
+}
+
 const client = new Discord.Client();
 
 client.on('ready', () => {
