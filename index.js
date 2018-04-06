@@ -58,6 +58,7 @@ client.on('message', async message => {
 
   playSoundCommand(message, 'renan');
   playSoundCommand(message, 'julinho');
+  playSoundCommand(message, 'maurilio');
 
 
 });
