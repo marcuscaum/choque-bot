@@ -10,7 +10,7 @@ Um choque de cultura no seu servidor Discord.
 
 **/choque**
  - help
- - vaza (tira o bot do server)
+ - vaza (tira o bot do canal)
  - maurilio
  - rogerinho
  - renan
