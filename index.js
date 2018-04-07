@@ -27,8 +27,7 @@ const playSound = async (message, song) => {
   const connection = await enterChannel(message)
   const dispatcher = connection.playFile(song);
 
-  dispatcher.on('error', console.log)
-  // dispatcher.on('end', () => message.member.voiceChannel.leave());
+  dispatcher.on('error', console.log);
 }  
 
 const playRandomSoundFromList = async (message, member) => {
@@ -78,7 +77,7 @@ client.on('message', async message => {
 
   leaveChannelListener(message);
   helpCommand(message);
-  miranha(message)
+  miranha(message);
   
   playRandomSoundFromList(message, 'renan');
   playRandomSoundFromList(message, 'julinho');
