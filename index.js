@@ -67,10 +67,19 @@ const leaveChannelListener = message => {
 }
 
 const miranha = message => {
-  if(!(message.content === '/miranha')) return;
+  if(!(message.content.includes('/miranha'))) return;
   
-  playSpecificSound(message, 'mary-jane', './miranha/mary-jane.mp3', true);
-  playSpecificSound(message, 'eu-pago', './miranha/eu-pago.mp3', true);
+  if(message.content.includes('mary-jane')) {
+    playSpecificSound(message, 'mary-jane', './miranha/mary-jane.mp3', true);
+  }
+
+  if(message.content.includes('eu-pago')) {
+    playSpecificSound(message, 'eu-pago', './miranha/eu-pago.mp3', true);
+  }
+  
+  if(message.content.includes('cheguei')) {
+    playSpecificSound(message, 'cheguei', './miranha/cheguei.mp3', true);
+  }
 }
 
 client.on('message', async message => {
