@@ -33,7 +33,10 @@ const playSound = async (message, sound) => {
         }
       });
     })
-    .on('error', console.log);
+    .on('error', () => {
+      console.log(error);
+      message.member.voiceChannel.leave();
+    });
 }
 
 const playRandomSoundFromList = async (message, member) => {
