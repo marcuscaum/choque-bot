@@ -76,6 +76,10 @@ const miranha = message => {
   if(message.content.includes('eu-pago')) {
     playSpecificSound(message, 'eu-pago', './miranha/eu-pago.mp3', true);
   }
+  
+  if(message.content.includes('cheguei')) {
+    playSpecificSound(message, 'cheguei', './miranha/cheguei.mp3', true);
+  }
 }
 
 client.on('message', async message => {
