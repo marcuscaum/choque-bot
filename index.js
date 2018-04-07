@@ -123,7 +123,7 @@ client.on('message', async message => {
   playSpecificSound({
     message,
     command: 'achou-errado',
-    sound: './maurilio/acho-errado.ogg',
+    sound: './rogerinho/acho-errado.ogg',
   });
 });
 
