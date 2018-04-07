@@ -9,7 +9,7 @@ const client = new Analytics(process.env.SEGMENT_KEY);
 const enterChannel = message => {
   if (message.member.voiceChannel) {
     client.identify({
-      userId: toString(message.guild),
+      userId: toString(message.member.user.id),
     });
     return message.member.voiceChannel.join();
   }
