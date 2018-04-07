@@ -70,15 +70,35 @@ const miranha = message => {
   if(!(message.content.includes('/miranha'))) return;
   
   if(message.content.includes('mary-jane')) {
-    playSpecificSound(message, 'mary-jane', './miranha/mary-jane.mp3', true);
+    playSpecificSound({
+      message,
+      sound: './miranha/mary-jane.mp3',
+      customCheck: true
+    });
   }
 
   if(message.content.includes('eu-pago')) {
-    playSpecificSound(message, 'eu-pago', './miranha/eu-pago.mp3', true);
+    playSpecificSound({
+      message,
+      sound: './miranha/eu-pago.mp3',
+      customCheck: true
+    });
   }
   
   if(message.content.includes('cheguei')) {
-    playSpecificSound(message, 'cheguei', './miranha/cheguei.mp3', true);
+    playSpecificSound({
+      message,
+      sound: './miranha/cheguei.mp3',
+      customCheck: true
+    });
+  }
+  
+  if(message.content.includes('singaro')) {
+    playSpecificSound({
+      message,
+      sound: './miranha/singaro.mp3',
+      customCheck: true
+    });
   }
 }
 
