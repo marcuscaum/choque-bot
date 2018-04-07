@@ -42,7 +42,7 @@ const playRandomSoundFromList = async (message, member) => {
   );
 }
 
-const playSpecificSound = (message, command, sound, customCheck) => {
+const playSpecificSound = ({ message, command, sound, customCheck }) => {
   if(!customCheck && !checkCommand(message, command)) return;
 
   playSound(
@@ -114,8 +114,17 @@ client.on('message', async message => {
   playRandomSoundFromList(message, 'maurilio');
   playRandomSoundFromList(message, 'rogerinho');
 
-  playSpecificSound(message, 'boa-noite', './maurilio/amantes_de_cinema.ogg');
-  playSpecificSound(message, 'achou-errado', './rogerinho/acho-errado.ogg');
+  playSpecificSound({
+    message,
+    command: 'boa-noite',
+    sound: './maurilio/amantes_de_cinema.ogg',
+  });
+
+  playSpecificSound({
+    message,
+    command: 'achou-errado',
+    sound: './maurilio/acho-errado.ogg',
+  });
 });
 
 client.login(process.env.DISCORD_TOKEN);
