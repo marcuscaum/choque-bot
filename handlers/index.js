@@ -26,7 +26,7 @@ const playSound = async (message, sound) => {
   dispatcher
     .on('end', () => {
       client.track({
-        userId: toString(message.guild),
+        userId: toString(message.member.user.id),
         event: 'Played sound',
         properties: {
           sound,
