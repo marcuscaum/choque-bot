@@ -69,7 +69,7 @@ const leaveChannelListener = message => {
 const miranha = message => {
   if(!(message.content === '/miranha')) return;
   
-  playRandonSoundFromList(message, 'miranha', true);
+  playRandomSoundFromList(message, 'miranha', true);
 }
 
 client.on('message', async message => {
