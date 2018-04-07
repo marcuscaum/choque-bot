@@ -67,12 +67,19 @@ const leaveChannelListener = message => {
   message.member.voiceChannel.leave();
 }
 
+const miranha = message => {
+  if(!(message.content === '/miranha')) return;
+  
+  playRandonSoundFromList(message, 'miranha');
+}
+
 client.on('message', async message => {
   if (!message.guild) return;
 
   leaveChannelListener(message);
   helpCommand(message);
-
+  miranha(message)
+  
   playRandomSoundFromList(message, 'renan');
   playRandomSoundFromList(message, 'julinho');
   playRandomSoundFromList(message, 'maurilio');
