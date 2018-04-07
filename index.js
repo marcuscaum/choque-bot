@@ -30,8 +30,8 @@ const playSound = async (message, song) => {
   dispatcher.on('error', console.log);
 }  
 
-const playRandomSoundFromList = async (message, member) => {
-  if (!checkCommand(message, member)) return;
+const playRandomSoundFromList = async (message, member, customCheck) => {
+  if (!customCheck && !checkCommand(message, member)) return;
 
   const readdir = util.promisify(fs.readdir);
   const soundList = await readdir(`./sounds/${member}/`);
@@ -69,7 +69,7 @@ const leaveChannelListener = message => {
 const miranha = message => {
   if(!(message.content === '/miranha')) return;
   
-  playRandonSoundFromList(message, 'miranha');
+  playRandonSoundFromList(message, 'miranha', true);
 }
 
 client.on('message', async message => {
