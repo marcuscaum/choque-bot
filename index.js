@@ -27,8 +27,7 @@ const playSound = async (message, song) => {
   const connection = await enterChannel(message)
   const dispatcher = connection.playFile(song);
 
-  dispatcher.on('error', console.log)
-  // dispatcher.on('end', () => message.member.voiceChannel.leave());
+  dispatcher.on('error', console.log);
 }  
 
 const playRandomSoundFromList = async (message, member) => {
@@ -43,8 +42,8 @@ const playRandomSoundFromList = async (message, member) => {
   );
 }
 
-const playSpecificSound = (message, command, sound) => {
-  if(!checkCommand(message, command)) return;
+const playSpecificSound = (message, command, sound, customCheck) => {
+  if(!customCheck && !checkCommand(message, command)) return;
 
   playSound(
     message,
@@ -67,12 +66,20 @@ const leaveChannelListener = message => {
   message.member.voiceChannel.leave();
 }
 
+const miranha = message => {
+  if(!(message.content === '/miranha')) return;
+  
+  playSpecificSound(message, 'mary-jane', './miranha/mary-jane.mp3', true);
+  playSpecificSound(message, 'eu-pago', './miranha/eu-pago.mp3', true);
+}
+
 client.on('message', async message => {
   if (!message.guild) return;
 
   leaveChannelListener(message);
   helpCommand(message);
-
+  miranha(message);
+  
   playRandomSoundFromList(message, 'renan');
   playRandomSoundFromList(message, 'julinho');
   playRandomSoundFromList(message, 'maurilio');
