@@ -2,6 +2,26 @@
 # yarn lockfile v1
 
 
+"@segment/loosely-validate-event@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@segment/loosely-validate-event/-/loosely-validate-event-1.1.2.tgz#d77840999e3f7e43e74b3b0d43391c1526f793b8"
+  dependencies:
+    component-type "^1.2.1"
+    join-component "^1.1.0"
+
+analytics-node@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/analytics-node/-/analytics-node-3.2.0.tgz#7b1380cb1a75df20646382bde63995fc4f92853f"
+  dependencies:
+    "@segment/loosely-validate-event" "^1.1.2"
+    axios "^0.16.2"
+    axios-retry "^3.0.1"
+    commander "^2.9.0"
+    crypto-token "^1.0.1"
+    lodash.isstring "^4.0.1"
+    ms "^2.0.0"
+    remove-trailing-slash "^0.1.0"
+
 async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
@@ -9,6 +29,19 @@ async-limiter@~1.0.0:
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
+
+axios-retry@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/axios-retry/-/axios-retry-3.0.2.tgz#d644db74184858e4a5cf10f5ea88dd657bb4ba61"
+  dependencies:
+    is-retry-allowed "^1.1.0"
+
+axios@^0.16.2:
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.16.2.tgz#ba4f92f17167dfbab40983785454b9ac149c3c6d"
+  dependencies:
+    follow-redirects "^1.2.3"
+    is-buffer "^1.1.5"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -53,6 +86,10 @@ component-emitter@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
 
+component-type@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/component-type/-/component-type-1.2.1.tgz#8a47901700238e4fc32269771230226f24b415a9"
+
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -64,6 +101,10 @@ cookiejar@^2.1.0:
 core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
+
+crypto-token@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/crypto-token/-/crypto-token-1.0.1.tgz#27c6482faf3b63c2f5da11577f8304346fe797a5"
 
 debug@2:
   version "2.6.9"
@@ -105,6 +146,12 @@ ffmpeg-binaries@^3.2.2-3:
   dependencies:
     superagent "^3.1.0"
     tar.gz "^1.0.5"
+
+follow-redirects@^1.2.3:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.4.1.tgz#d8120f4518190f55aac65bb6fc7b85fcd666d6aa"
+  dependencies:
+    debug "^3.1.0"
 
 form-data@^2.3.1:
   version "2.3.2"
@@ -165,9 +212,25 @@ inherits@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
 
+is-buffer@^1.1.5:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+
+is-retry-allowed@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/is-retry-allowed/-/is-retry-allowed-1.1.0.tgz#11a060568b67339444033d0125a61a20d564fb34"
+
 isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
+
+join-component@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/join-component/-/join-component-1.1.0.tgz#b8417b750661a392bee2c2537c68b2a9d4977cd5"
+
+lodash.isstring@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
 
 lodash.sample@^4.2.1:
   version "4.2.1"
@@ -218,6 +281,10 @@ mout@^0.11.0:
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
+
+ms@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
 
 nan@2, nan@^2.3.2:
   version "2.10.0"
@@ -291,6 +358,10 @@ ref@1:
     bindings "1"
     debug "2"
     nan "2"
+
+remove-trailing-slash@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/remove-trailing-slash/-/remove-trailing-slash-0.1.0.tgz#1498e5df0984c27e49b76ebf06887ca2d01150d2"
 
 rimraf@2:
   version "2.6.2"

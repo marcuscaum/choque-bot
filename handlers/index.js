@@ -1,9 +1,16 @@
 const fs = require('fs');
 const sample = require('lodash.sample');
 const util = require('util');
+const Analytics = require('analytics-node');
+
+const client = new Analytics(process.env.SEGMENT_KEY);
+
 
 const enterChannel = message => {
   if (message.member.voiceChannel) {
+    client.identify({
+      userId: toString(message.guild),
+    });
     return message.member.voiceChannel.join();
   }
 
@@ -12,11 +19,21 @@ const enterChannel = message => {
 
 const checkCommand = (message, command) => message.content === `/choque ${command}`;
 
-const playSound = async (message, song) => {
+const playSound = async (message, sound) => {
   const connection = await enterChannel(message);
-  const dispatcher = connection.playFile(song);
+  const dispatcher = connection.playFile(sound);
 
-  dispatcher.on('error', console.log);
+  dispatcher
+    .on('end', () => {
+      client.track({
+        userId: toString(message.guild),
+        event: 'Played sound',
+        properties: {
+          sound,
+        }
+      });
+    })
+    .on('error', console.log);
 }
 
 const playRandomSoundFromList = async (message, member) => {
