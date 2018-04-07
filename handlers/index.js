@@ -7,7 +7,7 @@ const enterChannel = message => {
     return message.member.voiceChannel.join();
   }
 
-  return message.reply('Entra em uma sala de aúdio, otário!');
+  return message.reply('Entra em uma sala de audio, otário!');
 }
 
 const checkCommand = (message, command) => message.content === `/choque ${command}`;
