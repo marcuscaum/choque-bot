@@ -10,6 +10,7 @@ const {
   leaveChannel,
   miranha,
   choque,
+  clear,
 } = require('./commands');
 
 client.on('ready', () => {
@@ -23,6 +24,7 @@ client.on('message', message => {
   help(message);
   miranha(message);
   choque(message);
+  clear(message);
 });
 
 client.login(process.env.DISCORD_TOKEN);

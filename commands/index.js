@@ -9,8 +9,20 @@ const help = message => {
 
   message.channel.send(
     'Comandos disponíveis: \n----------------- \n' +
-    'maurilio \nrogerinho \njulinho \nrenan \nboa-noite \nachou-errado \nvaza (tira o bot do canal)'
+    'maurilio \nrogerinho \njulinho \nrenan \nboa-noite \nachou-errado \nvaza (tira o bot do canal) \nclear (limpa as mensagens do bot)'
   );
+}
+
+const clear = async message => {
+  if(!checkCommand(message, 'clear')) return;
+  
+  message.delete();
+
+  const messages = await message.channel.fetchMessages({ limit: 100 });
+  const filteredMessages = messages.filter(msg => msg.content.startsWith('/choque'));
+
+  message.channel.bulkDelete(filteredMessages)
+    .catch(error => message.channel.send(`Error: ${error}`));
 }
 
 const leaveChannel = message => {
@@ -79,4 +91,5 @@ module.exports = {
   leaveChannel,
   miranha,
   choque,
+  clear,
 };

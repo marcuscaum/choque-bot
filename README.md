@@ -17,5 +17,6 @@ Um choque de cultura no seu servidor Discord.
  - julinho
  - boa-noite
  - achou-errado
+ - clear (limpa as mensagens do bot)
 
 Agradecimento especial ao pessoal do [AudioDeCultura](https://github.com/lagemanngui/audiodecultura) por disponibilizar os audios.
