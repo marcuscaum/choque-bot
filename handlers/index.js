@@ -60,7 +60,7 @@ const playSpecificSound = ({ message, command, sound, customCheck }) => {
 }
 
 const checkIdleAndRemoveFromChannel = client => {
-  console.log(client.user.PresenceStatus());
+  console.log(client.user.presenceStatus());
 }
 module.exports = {
   playSound,
