@@ -23,7 +23,7 @@ client.on('message', message => {
   leaveChannel(message);
   help(message);
   miranha(message);
-  choque(message);
+  choque(client, message);
   clear(message);
 });
 

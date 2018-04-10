@@ -5,7 +5,6 @@ const Analytics = require('analytics-node');
 
 const client = new Analytics(process.env.SEGMENT_KEY);
 
-
 const enterChannel = message => {
   if (message.member.voiceChannel) {
     client.identify({
@@ -60,11 +59,14 @@ const playSpecificSound = ({ message, command, sound, customCheck }) => {
   );
 }
 
-
+const checkIdleAndRemoveFromChannel = client => {
+  console.log(client.user.PresenceStatus());
+}
 module.exports = {
   playSound,
   playSpecificSound,
   playRandomSoundFromList,
   enterChannel,
   checkCommand,
+  checkIdleAndRemoveFromChannel,
 };
