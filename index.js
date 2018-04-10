@@ -17,6 +17,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on("presenceUpdate", () => {
+  console.log('rogerinho nao para', client.user.presence.status);
+});
+
 client.on('message', message => {
   if (!message.guild) return;
 
