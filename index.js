@@ -26,9 +26,6 @@ client.on("presenceUpdate", () => {
 
 client.on('message', message => {
   if (!message.guild) return;
-  client.setStatusOnline();
-  
-  setTimeout(() => { client.setStatusIdle(); }, 10000);
 
   leaveChannel(message);
   help(message);
