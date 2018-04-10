@@ -13,16 +13,21 @@ const {
   clear,
 } = require('./commands');
 
+const { checkIdleAndRemoveFromChannel } = require('./handlers');
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on("presenceUpdate", () => {
   console.log('rogerinho nao para', client.user.presence.status);
+  checkIdleAndRemoveFromChannel(client);
 });
 
 client.on('message', message => {
   if (!message.guild) return;
+
+  setTimeout(() => { client.setStatusIdle(); }, 10000);
 
   leaveChannel(message);
   help(message);

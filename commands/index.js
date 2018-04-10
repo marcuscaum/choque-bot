@@ -2,7 +2,6 @@ const {
   playSpecificSound,
   playRandomSoundFromList,
   checkCommand,
-  checkIdleAndRemoveFromChannel,
 } = require('../handlers');
 
 const help = message => {
@@ -69,8 +68,6 @@ const miranha = message => {
 }
 
 const choque = (client, message) => {
-  checkIdleAndRemoveFromChannel(client);
-
   playRandomSoundFromList(message, 'renan');
   playRandomSoundFromList(message, 'julinho');
   playRandomSoundFromList(message, 'maurilio');
